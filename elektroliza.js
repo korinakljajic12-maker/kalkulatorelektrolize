@@ -43,16 +43,16 @@
   const uvLabelMap    = {nisko:'Nisko UV', srednje:'Srednje UV', visoko:'Visoko UV'};
 
   function tempFactor(t){
-    if(t<=28) return 1.00;
-    if(t<=30) return 1.10;
-    if(t<=34) return 1.25;
+    if(t<28)   return 1.00;
+    if(t<=30)  return 1.10;
+    if(t<=34)  return 1.25;
     return 1.40;
   }
   function tempFactorLabel(t){
-    if(t<=28) return '≤ 28 °C → f_t = 1.00';
-    if(t<=30) return '28 – 30 °C → f_t = 1.10';
-    if(t<=34) return '31 – 34 °C → f_t = 1.25';
-    return '> 34 °C → f_t = 1.40';
+    if(t<28)   return '< 28 °C → f_t = 1,00';
+    if(t<=30)  return '28 – 30 °C → f_t = 1,10';
+    if(t<=34)  return '30 – 34 °C → f_t = 1,25';
+    return '> 34 °C → f_t = 1,40';
   }
 
   const $=id=>document.getElementById(id);
