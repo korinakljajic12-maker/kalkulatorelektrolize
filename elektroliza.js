@@ -32,9 +32,9 @@
     '7.2': 0.660,
     '7.3': 0.580,
     '7.4': 0.500,
-    '7.5': 0.4575,
+    '7.5': 0.458,
     '7.6': 0.415,
-    '7.7': 0.3725,
+    '7.7': 0.373,
     '7.8': 0.330,
   };
   const loadFactorMap = {nisko:0.4, srednje:0.5, visoko:0.7, vrlovisoko:1.1};
@@ -181,13 +181,6 @@
 
     $('mVolumen').textContent=`${fmt(volumen,1)} m³`;
     $('mRequired').textContent=`${fmt(Prequired,2)}`;
-    $('mModel').textContent=selected?(selected.type==='double'?`${selected.units[0].model} + ${selected.units[1].model}`:`${selected.units[0].model}`):'Nema modela';
-
-    $('preporuka').innerHTML=selected?(
-        selected.type==='double'
-          ? `Za potrebnu proizvodnju <strong>${fmt(Prequired,2)} g/h</strong> preporučuju se uređaji <strong>${selected.units[0].model} + ${selected.units[1].model}</strong> (ukupno ${fmt(selected.totalOutput,0)} g/h).`
-          : `Za potrebnu proizvodnju <strong>${fmt(Prequired,2)} g/h</strong> preporučuje se uređaj <strong>${selected.units[0].model}</strong> · ${selected.units[0].naziv} (${fmt(selected.units[0].snaga,0)} g/h).`
-      ):`Potrebna proizvodnja iznosi <strong>${fmt(Prequired,2)} g/h</strong>. U trenutačnom katalogu nema dovoljno snažnog modela ni u kombinaciji 2 uređaja.`;
 
     $('formulaBox').innerHTML=`<strong>Primijenjena formula</strong><br><br>`
       +`P = [ V<sub>b</sub> × 0,33 × (f₀ + 0,2) / f<sub>pH</sub> ] × f<sub>t</sub> × f<sub>UV</sub><br><br>`
@@ -237,7 +230,6 @@
     $('opterecenjeBazena').value='srednje';
     $('izlozenostSuncu').value='visoko';
     $('mVolumen').textContent='-'; $('mRequired').textContent='-';
-    $('mModel').textContent='-'; $('preporuka').textContent='-';
     $('formulaBox').textContent='Formula će biti prikazana nakon izračuna.';
     renderRows([]);
     renderCatalog(null,null);
